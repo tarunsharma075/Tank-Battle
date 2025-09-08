@@ -5,14 +5,16 @@ using UnityEngine;
 public class TankView : MonoBehaviour
 { private TankController tankController;
 
-    private float movement;
+    private  float movement;
     private float rotation;
-
     [SerializeField]
     private Rigidbody rb;
     void Start()
     {
-        
+        GameObject cam = GameObject.Find("Main Camera");
+        cam.transform.SetParent(this.transform);
+        cam.transform.localPosition = new Vector3(0f, 3f, -8.45f);
+
     }
 
   
@@ -21,12 +23,12 @@ public class TankView : MonoBehaviour
         MoveMent();
         if(movement!= 0)
         {
-            tankController.MoveTank(movement, 30f);
+            tankController.MoveTank(movement, tankController.GetTankModel().movement);
         }
 
         if(rotation != 0)
         {
-            tankController.RotateTank(rotation, 100f);
+            tankController.RotateTank(rotation, tankController.GetTankModel().rotation);
         }
 
     }

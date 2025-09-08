@@ -2,10 +2,16 @@
 public class TankModel
 {
     private TankController tankController;
+    public float movement;
+    public float rotation;
 
-    public TankModel()
+
+    public TankModel( float movement,float rotation)
+
     {
-        
+        this.movement = movement;
+        this.rotation = rotation;
+
 
     }
 

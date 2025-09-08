@@ -30,4 +30,9 @@ public TankController(TankView view, TankModel model)
         rb.MoveRotation(rb.rotation * deltarotation);
     }   
 
+    public TankModel GetTankModel()
+    {
+        return tankModel;
+    }
+
 }
