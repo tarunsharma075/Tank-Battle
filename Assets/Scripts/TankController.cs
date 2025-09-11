@@ -6,15 +6,18 @@ public class TankController
     private TankView tankView;
     private TankModel tankModel;
     private Rigidbody rb;
-    
-public TankController(TankView view, TankModel model)
+    private  Transform bulletpostion;
+
+
+    public TankController(TankView view, TankModel model)
     {
         this.tankView = GameObject.Instantiate<TankView>(view);
         this.tankModel = model;
         rb= tankView.GetRigidbody();
         tankView.SetTank(this);
         tankModel.SetTank(this);
-        //GameObject.Instantiate(tankView);
+        tankView.ChangeColor(tankModel.color);
+        
     }
 
    public void MoveTank(float movement,float movementspeed)
@@ -30,9 +33,17 @@ public TankController(TankView view, TankModel model)
         rb.MoveRotation(rb.rotation * deltarotation);
     }   
 
+
+  
+
     public TankModel GetTankModel()
     {
         return tankModel;
+    }
+
+    public Transform getBulletPosition()
+    {
+        return bulletpostion;
     }
 
 }
